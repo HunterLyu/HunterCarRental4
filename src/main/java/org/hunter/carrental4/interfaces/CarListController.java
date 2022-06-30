@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "/listCar")
-@Api(tags = "Car inventory searching")
+@Api(tags = "Car inventory searching.")
 public class CarListController extends BaseController{
 
     @Resource
