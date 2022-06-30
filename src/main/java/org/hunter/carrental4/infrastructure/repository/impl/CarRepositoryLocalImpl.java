@@ -79,16 +79,6 @@ public class CarRepositoryLocalImpl implements CarRepository {
     }
 
     @Override
-    public void updateCarInventory(CarInventory carInventory) throws Exception {
-
-    }
-
-    @Override
-    public void updateCars(Map<String, Car> cars) throws Exception {
-        this.cars = cars;
-    }
-
-    @Override
     public Car retrieveById(String carId) throws Exception {
         return cars.get(carId);
     }

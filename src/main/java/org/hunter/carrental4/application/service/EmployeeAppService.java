@@ -5,7 +5,7 @@ import org.hunter.carrental4.common.model.Result;
 
 public interface EmployeeAppService {
 
-    Result<CustomerReservationDTO> returnCar(String reservationId, String employeeId, String newDamage);
+    Result<CustomerReservationDTO> confirmReturning(String reservationId, String employeeId, String newDamage);
 
-    Result<CustomerReservationDTO> pickUpCar(String reservationId, String employeeId, String existingDamage);
+    Result<CustomerReservationDTO> confirmPickingUp(String reservationId, String employeeId, String existingDamage);
 }

@@ -15,7 +15,4 @@ public interface CarRepository {
 
     Map<String, Car> retrieveCars() throws Exception;
 
-    void updateCarInventory(CarInventory carInventory) throws Exception;
-
-    void updateCars(Map<String, Car> cars) throws Exception;
 }

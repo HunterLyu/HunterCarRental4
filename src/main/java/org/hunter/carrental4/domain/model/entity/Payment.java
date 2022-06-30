@@ -7,7 +7,7 @@ import java.util.List;
 
 @Data
 public class Payment {
-    private String paymentId;
+    private String id;
 
     private String name;
 

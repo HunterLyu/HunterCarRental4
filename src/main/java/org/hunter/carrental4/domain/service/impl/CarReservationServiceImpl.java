@@ -39,6 +39,9 @@ public class CarReservationServiceImpl implements CarReservationService {
             customerReservation.setCustomerId(customerId);
             customerReservation.setDriverId(customerId);
 
+            //TODO: distributed lock to deduct inventory for a car type per UUID value.
+
+            //TODO: star Spring transaction
 
             // Find available car
             Map<String, Car> carIdCarMap = carRepository.retrieveCars();
@@ -63,8 +66,12 @@ public class CarReservationServiceImpl implements CarReservationService {
             Map<CarType, CarInventory> carTypeCarInventoryMap = carRepository.retrieveCarInventory();
             CarInventory carInventory = carTypeCarInventoryMap.get(carType);
 
-            //TODO: Use redis to deduct car inventory and roll back any oversold.
+
             carInventory.setAvailableAmount(carInventory.getAvailableAmount().intValue() - 1);
+
+            //TODO: end Spring transaction
+
+            //TODO: distributed unlock  to deduct inventory for a car type per UUID value.
 
             customerReservation.setRentalPricePlan(carInventory.getRentalPricePlan());
             customerReservation.setPickUpDate(rentDate);
@@ -79,6 +86,7 @@ public class CarReservationServiceImpl implements CarReservationService {
 
             //TODO: Set up an schedule plan to cancel the reservation after its expired without pay.
         } catch (Exception e) {
+            //TODO: distributed unlock to deduct inventory for a car type per UUID value
             return Result.fail("call repository throw exception", "");
         }
 
@@ -97,6 +105,7 @@ public class CarReservationServiceImpl implements CarReservationService {
                 return Result.fail("Cannot return car since customer doesn't occupy the car", "");
             }
 
+            //TODO: star Spring transaction
 
             customerReservation.setActualReturnDate(new Date());
             customerReservation.calculateAdditionalPrice();
@@ -118,9 +127,9 @@ public class CarReservationServiceImpl implements CarReservationService {
             CarInventory carInventory = carTypeCarInventoryMap.get(car.getCarType());
             carInventory.setAvailableAmount(carInventory.getAvailableAmount() + 1);
 
-            //TODO: Use redis to add car inventory.
-
             reservationRepository.saveReservation(customerReservation);
+
+            //TODO: end Spring transaction
         } catch (Exception e) {
             return Result.fail("call repository throw exception", "");
         }
@@ -146,7 +155,6 @@ public class CarReservationServiceImpl implements CarReservationService {
             customerReservation.setPickUpEmployeeId(employeeId);
             customerReservation.setActualPickUpDate(new Date());
 
-
             reservationRepository.saveReservation(customerReservation);
         } catch (Exception e) {
             return Result.fail("call repository throw exception", "");
@@ -170,7 +178,10 @@ public class CarReservationServiceImpl implements CarReservationService {
             }
 
             //TODO: calculate any liquidated damages
-            //TODO: return payment
+
+            //TODO: propose refund payment
+
+            //TODO: star Spring transaction
 
             customerReservation.setBookingStatus(BookingStatus.Cancelled);
 
@@ -185,7 +196,7 @@ public class CarReservationServiceImpl implements CarReservationService {
             CarInventory carInventory = carTypeCarInventoryMap.get(car.getCarType());
             carInventory.setAvailableAmount(carInventory.getAvailableAmount() + 1);
 
-            //TODO: Use redis to add car inventory.
+            //TODO: end Spring transaction
 
             reservationRepository.saveReservation(customerReservation);
         } catch (Exception e) {

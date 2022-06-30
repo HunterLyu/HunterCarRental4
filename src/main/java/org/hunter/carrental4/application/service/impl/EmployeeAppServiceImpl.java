@@ -20,7 +20,7 @@ public class EmployeeAppServiceImpl implements EmployeeAppService {
     private CarReservationService carReservationService;
 
     @Override
-    public Result<CustomerReservationDTO> returnCar(String reservationId, String employeeId, String newDamage) {
+    public Result<CustomerReservationDTO> confirmReturning(String reservationId, String employeeId, String newDamage) {
 
         Result<CustomerReservation> customerReservationResult = carReservationService.returnCar(reservationId,
                 employeeId, newDamage);
@@ -42,7 +42,7 @@ public class EmployeeAppServiceImpl implements EmployeeAppService {
     }
 
     @Override
-    public Result<CustomerReservationDTO> pickUpCar(String reservationId, String employeeId, String existingDamage) {
+    public Result<CustomerReservationDTO> confirmPickingUp(String reservationId, String employeeId, String existingDamage) {
         Result<CustomerReservation> customerReservationResult = carReservationService.pickUpCar(reservationId,
                 employeeId, existingDamage);
         if (!customerReservationResult.isSuccess()) {

@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class PaymentItem {
-    private String paymentItemId;
+    private String id;
     private String name;
     private Integer total;
     private Double price;

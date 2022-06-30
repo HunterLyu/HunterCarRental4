@@ -23,22 +23,22 @@ public class EmployeeOperationController extends BaseController{
     @Resource
     private EmployeeAppService employeeAppService;
 
-    @PostMapping(value = "/pickUpCar")
+    @PostMapping(value = "/confirmPickingUp")
     @ApiOperation(value = "pick up a car")
-    public Result<CustomerReservationDTO> pickUpCar(@RequestBody SimpleReservationRequest simpleReservationRequest) {
+    public Result<CustomerReservationDTO> confirmPickingUp(@RequestBody SimpleReservationRequest simpleReservationRequest) {
 
-        Result<CustomerReservationDTO> reservationDTOResult = employeeAppService.pickUpCar(simpleReservationRequest.getReservationId(),
+        Result<CustomerReservationDTO> reservationDTOResult = employeeAppService.confirmPickingUp(simpleReservationRequest.getReservationId(),
                 "Tom", simpleReservationRequest.getDamage());
 
         return reservationDTOResult;
     }
 
-    @PostMapping(value = "/returnCar")
+    @PostMapping(value = "/confirmReturning")
     @ApiOperation(value = "return a car")
-    public Result<CustomerReservationDTO> returnCar(@ApiParam(value = "reservationId", required = true) @RequestBody SimpleReservationRequest simpleReservationRequest) {
+    public Result<CustomerReservationDTO> confirmReturning(@ApiParam(value = "reservationId", required = true) @RequestBody SimpleReservationRequest simpleReservationRequest) {
 
         Result<CustomerReservationDTO> reservationDTOResult =
-                employeeAppService.returnCar(simpleReservationRequest.getReservationId(),
+                employeeAppService.confirmReturning(simpleReservationRequest.getReservationId(),
                 "Tom", simpleReservationRequest.getDamage());
 
         return reservationDTOResult;

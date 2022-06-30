@@ -9,7 +9,7 @@ import java.util.Collection;
 /**
  * car reservation operation.
  */
-public interface CarReservationAppService {
+public interface CustomerReservationAppService {
 
     Result<CustomerReservationDTO> reserveCar(BookingRecordDTO bookingRecordDTO);
 

@@ -6,7 +6,7 @@ import io.swagger.annotations.ApiParam;
 import org.apache.commons.lang3.time.DateUtils;
 import org.hunter.carrental4.application.dto.BookingRecordDTO;
 import org.hunter.carrental4.application.dto.CustomerReservationDTO;
-import org.hunter.carrental4.application.service.CarReservationAppService;
+import org.hunter.carrental4.application.service.CustomerReservationAppService;
 import org.hunter.carrental4.common.model.Result;
 import org.hunter.carrental4.interfaces.viewobject.BookingRecordVO;
 import org.hunter.carrental4.interfaces.viewobject.SimpleReservationRequest;
@@ -20,19 +20,19 @@ import java.util.Date;
 
 
 @RestController
-@RequestMapping(path = "/reserve")
+@RequestMapping(path = "/customer")
 @Api(tags = "Car reservation operation")
 public class CustomerReservationController extends BaseController{
 
     public static final String DATE_PATTERN = "yyyy-MM-dd HH:mm:ss";
     @Resource
-    private CarReservationAppService carReservationAppService;
+    private CustomerReservationAppService customerReservationAppService;
 
     @GetMapping(value = "/listReservations")
     @ApiOperation(value = "list all reservations")
     public Result<Collection<CustomerReservationDTO>> listInventory() {
 
-        Result<Collection<CustomerReservationDTO>> collectionResult = carReservationAppService.listAll();
+        Result<Collection<CustomerReservationDTO>> collectionResult = customerReservationAppService.listAll();
 
         return collectionResult;
     }
@@ -49,7 +49,7 @@ public class CustomerReservationController extends BaseController{
         bookingRecordDTO.setPickUpdate(DateUtils.parseDate(bookingRecordVO.getPickUpdateStr(), DATE_PATTERN));
         bookingRecordDTO.setReturnDate(DateUtils.parseDate(bookingRecordVO.getReturnDateStr(), DATE_PATTERN));
 
-        Result<CustomerReservationDTO> result = carReservationAppService.reserveCar(bookingRecordDTO);
+        Result<CustomerReservationDTO> result = customerReservationAppService.reserveCar(bookingRecordDTO);
 
         return result;
     }
@@ -58,7 +58,7 @@ public class CustomerReservationController extends BaseController{
     @ApiOperation(value = "cancel a reservation")
     public Result<CustomerReservationDTO> cancel(@RequestBody SimpleReservationRequest simpleReservationRequest) {
 
-        Result<CustomerReservationDTO> result = carReservationAppService.cancel(simpleReservationRequest.getReservationId());
+        Result<CustomerReservationDTO> result = customerReservationAppService.cancel(simpleReservationRequest.getReservationId());
 
         return result;
     }

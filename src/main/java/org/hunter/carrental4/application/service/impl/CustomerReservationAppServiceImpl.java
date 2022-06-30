@@ -5,7 +5,7 @@ import org.hunter.carrental4.application.assemble.Translatetion;
 import org.hunter.carrental4.application.dto.BookingRecordDTO;
 import org.hunter.carrental4.application.dto.CarTypeDTO;
 import org.hunter.carrental4.application.dto.CustomerReservationDTO;
-import org.hunter.carrental4.application.service.CarReservationAppService;
+import org.hunter.carrental4.application.service.CustomerReservationAppService;
 import org.hunter.carrental4.application.service.CustomerAppService;
 import org.hunter.carrental4.common.model.Result;
 import org.hunter.carrental4.domain.model.entity.BookingRecord;
@@ -24,7 +24,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
-public class CarReservationAppServiceImpl implements CarReservationAppService {
+public class CustomerReservationAppServiceImpl implements CustomerReservationAppService {
 
     @Autowired
     private CustomerAppService customerAppService;
