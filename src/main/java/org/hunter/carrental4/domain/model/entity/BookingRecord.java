@@ -14,7 +14,7 @@ public class BookingRecord {
 
     private String customerId;
 
-    private String bookingRecordId;
+    private String id;
     private String idNumber;
     private PersonalIdIdType personalIdIdType;
     private String name;

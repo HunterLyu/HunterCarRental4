@@ -25,7 +25,7 @@ public class BookingRecordServiceImpl implements BookingRecordService {
 
             //TODO: validate parameter
 
-            bookingRecord.setBookingRecordId(UUID.randomUUID().toString());
+            bookingRecord.setId(UUID.randomUUID().toString());
 
             bookingRecordRepository.saveBookingRecord(bookingRecord);
 

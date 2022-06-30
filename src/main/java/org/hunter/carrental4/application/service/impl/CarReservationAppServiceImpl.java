@@ -60,7 +60,7 @@ public class CarReservationAppServiceImpl implements CarReservationAppService {
             return Result.fail(bookingRecordResult);
         }
 
-        String bookingRecordId = bookingRecordResult.getModel().getBookingRecordId();
+        String bookingRecordId = bookingRecordResult.getModel().getId();
 
         // reserve car.
         CarTypeDTO carTypeDTO = bookingRecordDTO.getCarTypeDTO();
