@@ -3,7 +3,7 @@ package org.hunter.carrental4.domain.model.entity;
 import lombok.Builder;
 import lombok.Data;
 import org.hunter.carrental4.common.model.enums.CarStatus;
-import org.hunter.carrental4.domain.model.vo.CarType;
+import org.hunter.carrental4.domain.model.valueobject.CarType;
 
 @Data
 @Builder

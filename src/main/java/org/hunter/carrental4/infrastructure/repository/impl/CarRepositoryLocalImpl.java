@@ -1,11 +1,11 @@
-package org.hunter.carrental4.infrastructure.persistence;
+package org.hunter.carrental4.infrastructure.repository.impl;
 
 import org.hunter.carrental4.domain.model.entity.Car;
 import org.hunter.carrental4.common.model.enums.CarStatus;
 import org.hunter.carrental4.common.model.enums.PriceType;
 import org.hunter.carrental4.domain.model.entity.CarInventory;
-import org.hunter.carrental4.domain.model.vo.RentalPricePlan;
-import org.hunter.carrental4.domain.model.vo.CarType;
+import org.hunter.carrental4.domain.model.valueobject.RentalPricePlan;
+import org.hunter.carrental4.domain.model.valueobject.CarType;
 import org.hunter.carrental4.domain.repository.CarRepository;
 import org.springframework.stereotype.Repository;
 
@@ -55,8 +55,8 @@ public class CarRepositoryLocalImpl implements CarRepository {
                 .carNumber("No.3333").status(CarStatus.Available).condition("new").build();
         Car bmw650_2 = Car.builder().carId("4").carType(bmw650)
                 .carNumber("No.4444").status(CarStatus.Available).condition("old").build();
-        cars.put(bmw650_1.getCarId(), camry1);
-        cars.put(bmw650_2.getCarId(), camry2);
+        cars.put(bmw650_1.getCarId(), bmw650_1);
+        cars.put(bmw650_2.getCarId(), bmw650_2);
 
         List<Car> part2 = new ArrayList<>();
         part2.add(bmw650_1);

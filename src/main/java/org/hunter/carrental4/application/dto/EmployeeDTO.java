@@ -1,4 +1,4 @@
-package org.hunter.carrental4.application.model.dto;
+package org.hunter.carrental4.application.dto;
 
 import lombok.Data;
 

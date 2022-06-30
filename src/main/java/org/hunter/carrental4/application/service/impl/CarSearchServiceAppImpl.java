@@ -1,6 +1,6 @@
 package org.hunter.carrental4.application.service.impl;
 
-import org.hunter.carrental4.application.model.dto.CarInventoryDTO;
+import org.hunter.carrental4.application.dto.CarInventoryDTO;
 import org.hunter.carrental4.application.service.CarSearchAppService;
 import org.hunter.carrental4.common.model.Result;
 import org.hunter.carrental4.domain.model.entity.CarInventory;

@@ -1,6 +1,6 @@
 package org.hunter.carrental4.application.service.impl;
 
-import org.hunter.carrental4.application.model.dto.BookingRecordDTO;
+import org.hunter.carrental4.application.dto.BookingRecordDTO;
 import org.hunter.carrental4.application.service.CustomerAppService;
 import org.hunter.carrental4.common.model.Result;
 import org.hunter.carrental4.domain.model.entity.Customer;
@@ -24,10 +24,10 @@ public class CustomerAppServiceImpl implements CustomerAppService {
 
         PersonalId personalId = new PersonalId();
         personalId.setPersonalIdIdType(bookingRecordDTO.getPersonalIdIdType());
-        personalId.setNumber(bookingRecordDTO.getIdNumber());
+        personalId.setNumber(bookingRecordDTO.getIdCardNumber());
         customer.setId(personalId);
 
-        Result<String> customerIdResult = customerService.addCustomer(customer);
+        Result<String> customerIdResult = customerService.saveCustomer(customer);
         if (!customerIdResult.isSuccess()) {
             return Result.fail(customerIdResult);
         }

@@ -1,4 +1,4 @@
-package org.hunter.carrental4.application.model.dto;
+package org.hunter.carrental4.application.dto;
 
 import lombok.Builder;
 import lombok.Data;
@@ -16,7 +16,7 @@ public class CarDTO  implements Serializable {
     private static final long serialVersionUID = -1861555408271779032L;
 
     private String carId;
-    private SimpleCarInfo simpleCarInfo;
+    private CarTypeDTO carTypeDTO;
     private String carNumber;
     private CarStatus status;
     private String condition;

@@ -1,10 +1,10 @@
-package org.hunter.carrental4.application.model.dto;
+package org.hunter.carrental4.application.dto;
 
 import lombok.Builder;
 import lombok.Data;
 import org.hunter.carrental4.domain.model.entity.CarInventory;
-import org.hunter.carrental4.domain.model.vo.CarType;
-import org.hunter.carrental4.domain.model.vo.RentalPricePlan;
+import org.hunter.carrental4.domain.model.valueobject.CarType;
+import org.hunter.carrental4.domain.model.valueobject.RentalPricePlan;
 import org.springframework.beans.BeanUtils;
 
 import java.io.Serial;
@@ -16,7 +16,7 @@ public class CarInventoryDTO implements Serializable {
     @Serial
     private static final long serialVersionUID = 7813453287058290514L;
 
-    private SimpleCarInfo carInfo;
+    private CarTypeDTO carInfo;
     private Integer amount;
     private RentalPricePlanDTO pricePlan;
 
@@ -32,7 +32,7 @@ public class CarInventoryDTO implements Serializable {
 
             CarType carType = carInventory.getCarType();
             if (carType != null) {
-                this.carInfo = SimpleCarInfo.builder().build();
+                this.carInfo = CarTypeDTO.builder().build();
                 carInfo.fromDomainObj(carType);
             }
         }

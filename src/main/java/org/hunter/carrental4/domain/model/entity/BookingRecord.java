@@ -3,13 +3,15 @@ package org.hunter.carrental4.domain.model.entity;
 import lombok.Builder;
 import lombok.Data;
 import org.hunter.carrental4.common.model.enums.PersonalIdIdType;
-import org.hunter.carrental4.domain.model.vo.CarType;
+import org.hunter.carrental4.domain.model.valueobject.CarType;
 
 import java.util.Date;
 
 @Data
 @Builder
 public class BookingRecord {
+    private Date createDate;
+
     private String customerId;
 
     private String bookingRecordId;
@@ -24,6 +26,6 @@ public class BookingRecord {
 
     private CarType carType;
 
-    private Date rentDate;
-    private Date oriReturnDate;
+    private Date pickUpDate;
+    private Date returnDate;
 }

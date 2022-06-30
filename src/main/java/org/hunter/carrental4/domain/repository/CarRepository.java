@@ -2,7 +2,7 @@ package org.hunter.carrental4.domain.repository;
 
 import org.hunter.carrental4.domain.model.entity.Car;
 import org.hunter.carrental4.domain.model.entity.CarInventory;
-import org.hunter.carrental4.domain.model.vo.CarType;
+import org.hunter.carrental4.domain.model.valueobject.CarType;
 
 import java.util.Map;
 

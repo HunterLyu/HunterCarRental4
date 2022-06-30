@@ -1,4 +1,4 @@
-package org.hunter.carrental4.infrastructure.persistence;
+package org.hunter.carrental4.infrastructure.repository.impl;
 
 import org.hunter.carrental4.domain.model.entity.CustomerReservation;
 import org.hunter.carrental4.domain.repository.ReservationRepository;

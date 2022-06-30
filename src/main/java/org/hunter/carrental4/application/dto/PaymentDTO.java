@@ -1,4 +1,4 @@
-package org.hunter.carrental4.application.model.dto;
+package org.hunter.carrental4.application.dto;
 
 import lombok.Data;
 import org.hunter.carrental4.common.model.enums.PaymentType;

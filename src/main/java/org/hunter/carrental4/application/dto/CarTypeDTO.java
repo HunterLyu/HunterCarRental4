@@ -1,8 +1,8 @@
-package org.hunter.carrental4.application.model.dto;
+package org.hunter.carrental4.application.dto;
 
 import lombok.Builder;
 import lombok.Data;
-import org.hunter.carrental4.domain.model.vo.CarType;
+import org.hunter.carrental4.domain.model.valueobject.CarType;
 import org.springframework.beans.BeanUtils;
 
 import java.io.Serial;
@@ -10,7 +10,7 @@ import java.io.Serializable;
 
 @Data
 @Builder
-public class SimpleCarInfo implements Serializable {
+public class CarTypeDTO implements Serializable {
 
     @Serial
     private static final long serialVersionUID = -57145529595638770L;

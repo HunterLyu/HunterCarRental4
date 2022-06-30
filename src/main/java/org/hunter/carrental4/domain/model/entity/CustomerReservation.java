@@ -2,7 +2,7 @@ package org.hunter.carrental4.domain.model.entity;
 
 import lombok.Data;
 import org.hunter.carrental4.common.model.enums.BookingStatus;
-import org.hunter.carrental4.domain.model.vo.RentalPricePlan;
+import org.hunter.carrental4.domain.model.valueobject.RentalPricePlan;
 
 import java.util.Date;
 
@@ -15,7 +15,9 @@ public class CustomerReservation {
     private Date bookingDate;
 
     private String customerId;
-    private String employeeId;
+
+    private String pickUpEmployeeId;
+    private String returnEmployeeId;
 
     private String carId;
 
@@ -26,10 +28,10 @@ public class CustomerReservation {
     private Double originalPrice;
     private Double additionalPrice;
 
-    private Date pickUpDate;
+    private Date actualPickUpDate;
 
-    private Date rentDate;
-    private Date oriReturnDate;
+    private Date pickUpDate;
+    private Date returnDate;
     private Date actualReturnDate;
 
     private BookingStatus bookingStatus;
@@ -37,10 +39,10 @@ public class CustomerReservation {
     private String bookingRecordId;
 
     public void calculateOriPrice(){
-        if(rentDate == null || oriReturnDate == null || rentalPricePlan == null){
+        if(pickUpDate == null || returnDate == null || rentalPricePlan == null){
             return;
         }
-        long duration = oriReturnDate.getTime() - rentDate.getTime();
+        long duration = returnDate.getTime() - pickUpDate.getTime();
 
         long days = duration / ONE_DAY_MILLISECONDS;
         if(duration % ONE_DAY_MILLISECONDS > 0){
@@ -52,11 +54,11 @@ public class CustomerReservation {
     }
 
     public void calculateAdditionalPrice(){
-        if(rentDate == null || actualReturnDate == null || rentalPricePlan == null){
+        if(pickUpDate == null || actualReturnDate == null || rentalPricePlan == null){
             return;
         }
 
-        long duration = actualReturnDate.getTime() - rentDate.getTime();
+        long duration = actualReturnDate.getTime() - pickUpDate.getTime();
 
         long days = duration / ONE_DAY_MILLISECONDS;
         if(duration % ONE_DAY_MILLISECONDS > 0){

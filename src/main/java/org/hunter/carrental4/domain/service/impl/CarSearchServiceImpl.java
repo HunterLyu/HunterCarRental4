@@ -3,7 +3,7 @@ package org.hunter.carrental4.domain.service.impl;
 import org.apache.commons.lang3.StringUtils;
 import org.hunter.carrental4.common.model.Result;
 import org.hunter.carrental4.domain.model.entity.CarInventory;
-import org.hunter.carrental4.domain.model.vo.CarType;
+import org.hunter.carrental4.domain.model.valueobject.CarType;
 import org.hunter.carrental4.domain.repository.CarRepository;
 import org.hunter.carrental4.domain.service.CarSearchService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package org.hunter.carrental4.domain.model.vo;
+package org.hunter.carrental4.domain.model.valueobject;
 
 import lombok.Builder;
 import lombok.Data;
