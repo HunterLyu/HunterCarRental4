@@ -110,7 +110,7 @@ public class CarReservatinServiceTests {
                     .thenThrow(new Exception("test error"));
 
         } catch (Exception e) {
-            e.printStackTrace();
+            Assert.fail();
         }
 
         try {

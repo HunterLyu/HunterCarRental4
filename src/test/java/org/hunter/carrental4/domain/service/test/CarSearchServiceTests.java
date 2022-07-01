@@ -67,7 +67,7 @@ public class CarSearchServiceTests {
                     .thenThrow(new Exception("test error"));
 
         } catch (Exception e) {
-            e.printStackTrace();
+            Assert.fail();
         }
 
         try {
