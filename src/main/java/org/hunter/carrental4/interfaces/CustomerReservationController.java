@@ -30,7 +30,7 @@ public class CustomerReservationController extends BaseController{
 
     @GetMapping(value = "/listReservations")
     @ApiOperation(value = "list all reservations")
-    public Result<Collection<CustomerReservationDTO>> listInventory() {
+    public Result<Collection<CustomerReservationDTO>> listReservations() {
 
         Result<Collection<CustomerReservationDTO>> collectionResult = customerReservationAppService.listAll();
 
@@ -46,7 +46,7 @@ public class CustomerReservationController extends BaseController{
 
         bookingRecordDTO.setCreateDate(new Date());
 
-        bookingRecordDTO.setPickUpdate(DateUtils.parseDate(bookingRecordVO.getPickUpdateStr(), DATE_PATTERN));
+        bookingRecordDTO.setPickUpDate(DateUtils.parseDate(bookingRecordVO.getPickUpDateStr(), DATE_PATTERN));
         bookingRecordDTO.setReturnDate(DateUtils.parseDate(bookingRecordVO.getReturnDateStr(), DATE_PATTERN));
 
         Result<CustomerReservationDTO> result = customerReservationAppService.reserveCar(bookingRecordDTO);

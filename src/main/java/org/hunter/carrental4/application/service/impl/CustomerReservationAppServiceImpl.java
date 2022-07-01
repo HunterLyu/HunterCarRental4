@@ -67,7 +67,7 @@ public class CustomerReservationAppServiceImpl implements CustomerReservationApp
         CarType carType = CarType.builder().brand(carTypeDTO.getBrand()).name(carTypeDTO.getName()).build();
 
         Result<CustomerReservation> customerReservationResult = carReservationService.reserveCar(customerId,
-                bookingRecordId, carType, bookingRecordDTO.getPickUpdate(), bookingRecordDTO.getReturnDate());
+                bookingRecordId, carType, bookingRecordDTO.getPickUpDate(), bookingRecordDTO.getReturnDate());
 
         if (!customerReservationResult.isSuccess()) {
             return Result.fail(customerReservationResult);

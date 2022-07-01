@@ -22,11 +22,14 @@ public class CarRepositoryLocalImpl implements CarRepository {
     private static Map<String, Car> cars = new HashMap<>();
     private static Map<CarType, CarInventory> carInventory = new HashMap<>();
 
+
     /**
      * initial local DB
      */
     @PostConstruct
     public void initialCars() {
+        cars.clear();
+        carInventory.clear();
 
         CarType toyotaCamry = CarType.builder().name("Toyota Camry").brand("Toyota").build();
 

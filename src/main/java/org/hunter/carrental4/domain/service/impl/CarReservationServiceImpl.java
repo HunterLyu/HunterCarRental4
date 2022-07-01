@@ -27,7 +27,7 @@ public class CarReservationServiceImpl implements CarReservationService {
 
     @Override
     public Result<CustomerReservation> reserveCar(String customerId, String bookingRecordId, CarType carType,
-                                                  Date rentDate, Date returnDate) {
+                                                  Date pickUpDate, Date returnDate) {
         CustomerReservation customerReservation = new CustomerReservation();
         customerReservation.setId(UUID.randomUUID().toString());
         customerReservation.setBookingRecordId(bookingRecordId);
@@ -74,7 +74,7 @@ public class CarReservationServiceImpl implements CarReservationService {
             //TODO: distributed unlock  to deduct inventory for a car type per UUID value.
 
             customerReservation.setRentalPricePlan(carInventory.getRentalPricePlan());
-            customerReservation.setPickUpDate(rentDate);
+            customerReservation.setPickUpDate(pickUpDate);
             customerReservation.setReturnDate(returnDate);
 
             customerReservation.calculateOriPrice();
@@ -147,7 +147,7 @@ public class CarReservationServiceImpl implements CarReservationService {
 
             //TODO: record any car existing damage
 
-            if (customerReservation.getBookingStatus().getCode() > BookingStatus.PickUp.getCode()) {
+            if (customerReservation.getBookingStatus().getCode() >= BookingStatus.PickUp.getCode()) {
                 return Result.fail("car already picked up or reservation is closed.", "");
             }
 

@@ -39,7 +39,7 @@ public class BookingRecordDTO {
     private CarTypeDTO carTypeDTO;
 
     @ApiModelProperty(name = "pick up date", required = true)
-    private Date pickUpdate;
+    private Date pickUpDate;
 
     @ApiModelProperty(name = "return date", required = true)
     private Date returnDate;

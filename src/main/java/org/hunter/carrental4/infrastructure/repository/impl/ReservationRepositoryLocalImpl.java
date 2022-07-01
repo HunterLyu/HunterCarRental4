@@ -13,6 +13,10 @@ public class ReservationRepositoryLocalImpl implements ReservationRepository {
 
     private static Map<String, CustomerReservation> raservations = new HashMap<>();
 
+    public void initData(){
+        raservations.clear();
+    }
+
     @Override
     public CustomerReservation retrieveById(String reservationId) throws Exception {
         return raservations.get(reservationId);

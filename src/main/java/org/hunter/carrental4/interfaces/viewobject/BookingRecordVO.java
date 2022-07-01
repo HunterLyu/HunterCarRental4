@@ -35,7 +35,7 @@ public class BookingRecordVO {
     private CarTypeDTO carTypeDTO;
 
     @ApiModelProperty(value = "pick up date in format of yyyy-MM-dd HH:mm:ss", required = true)
-    private String pickUpdateStr;
+    private String pickUpDateStr;
 
     @ApiModelProperty(value = "return date in format of yyyy-MM-dd HH:mm:ss", required = true)
     private String returnDateStr;
