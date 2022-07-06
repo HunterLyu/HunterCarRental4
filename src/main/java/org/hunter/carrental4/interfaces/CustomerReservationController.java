@@ -37,8 +37,8 @@ public class CustomerReservationController extends BaseController{
         return collectionResult;
     }
 
-    @PostMapping(value = "/reserveCar")
-    @ApiOperation(value = "reserve a car")
+    @PostMapping(value = "/reserveCar", produces="application/json;charset=UTF-8")
+    @ApiOperation(value = "reserve a car", produces="application/json;charset=UTF-8")
     public Result<CustomerReservationDTO> reserveCar(@ApiParam(value = "input booking data") @RequestBody BookingRecordVO bookingRecordVO) throws ParseException {
 
         BookingRecordDTO bookingRecordDTO = BookingRecordDTO.builder().build();
