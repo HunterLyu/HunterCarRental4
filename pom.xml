@@ -79,12 +79,12 @@
       <groupId>io.springfox</groupId>  
       <artifactId>springfox-swagger-ui</artifactId>  
       <version>2.9.2</version> 
-    </dependency>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <scope>test</scope>
-    </dependency>
+    </dependency>  
+    <dependency> 
+      <groupId>junit</groupId>  
+      <artifactId>junit</artifactId>  
+      <scope>test</scope> 
+    </dependency> 
   </dependencies>  
   <build> 
     <plugins> 
@@ -108,7 +108,7 @@
           <schemaVersion>V2</schemaVersion>  
           <resourceGroup>org.hunter</resourceGroup>  
           <appName>hunterCarRental</appName>  
-          <region>chinaeast</region>  
+          <region>chineast</region>  
           <pricingTier>P1V2</pricingTier>  
           <runtime> 
             <os>linux</os>  
@@ -142,7 +142,7 @@
       <id>mvn-repos</id>  
       <name>Maven Repository</name>  
       <url>https://repo1.maven.org/maven2/</url>  
-      <releases>
+      <releases> 
         <enabled>true</enabled> 
       </releases>  
       <snapshots> 
