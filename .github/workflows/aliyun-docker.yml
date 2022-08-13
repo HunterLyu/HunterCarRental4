@@ -15,7 +15,7 @@ jobs:
 
       - name: Build the Docker image
         run: |
-          docker version
+          docker versional
           # 登录阿里云镜像仓库
           docker login --username=${{ secrets.ALIYUN_DOCKER_USERNAME }} --password=${{ secrets.ALIYUN_DOCKER_PASSWORD }} registry.cn-hangzhou.aliyuncs.com
           cd xxl-job-admin
