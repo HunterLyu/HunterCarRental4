@@ -2,7 +2,7 @@
 FROM openjdk:17.0.2-jdk-slim
 #COPY . /usr/src/myapp
 #WORKDIR /usr/src/myapp
-ADD ./taget/car-rental-4-0.0.1.jar car-rental.jar
+ADD ./target/car-rental-4-0.0.1.jar car-rental.jar
 #RUN javac Main.java
 #CMD ["java", "Main"]
 ENTRYPOINT java -jar jar car-rental.jar
